@@ -1,0 +1,36 @@
+import java.util.Scanner;
+class Main
+{
+	public static void main(String[] args)	
+	{
+	  double asalary, mrate, drate, hrate, atax, mtax, npay;
+	  Scanner input = new Scanner(System.in);
+	  System.out.println("Enter Annual Salary");
+        asalary = input.nextDouble();
+	  System.out.println("Your Annual Salary: " + String.format("%.2f", asalary));
+	  mrate = asalary/12;
+	  System.out.println("Your Monthly Rate: " + String.format("%.2f", mrate));
+    drate = mrate/22;
+    System.out.println("Your Daily Rate: " + String.format("%.2f", drate));
+    hrate = drate/8;
+    System.out.println("Your Hourly Rate: " + String.format("%.2f", hrate));
+    atax = 0;
+    if (asalary <= 250000){
+      atax = 0;
+    }else if (asalary >= 250000 && asalary < 400000){
+     atax = 30000 * 0.2;
+    }else if (asalary >= 400000 && asalary < 800000){
+      atax = 30000 + (0.25 * (asalary - 400000));
+    }else if (asalary >= 800000 && asalary < 20000000){
+      atax = 130000 + (0.3 * (asalary - 800000));
+    }else if (asalary >= 250000 && asalary < 400000){
+      atax = 490000 + (0.32 * (asalary - 2000000));
+    }else if (asalary >= 250000 && asalary < 400000){
+      atax = 2410000 + (0.35 * (asalary - 8000000));}
+    System.out.println("Your Annual Tax Deduction: " + String.format("%.2f", atax));
+    mtax = atax/12;
+    System.out.println("Your Monthly Tax Deduction: " + String.format("%.2f", mtax));
+    npay = mrate-mtax;
+    System.out.println("Net Pay: " + String.format("%.2f", npay));
+	}
+}
